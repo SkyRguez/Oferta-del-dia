@@ -49,3 +49,11 @@ v8.12.0
 - [React Developer Tools](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/) extension for Firefox.
 - [CMDer](http://cmder.net/): Command Line Emulator for Windows.
 - [Create React App 2](https://github.com/facebook/create-react-app)
+
+## 1. Intro to React
+
+- Everything in React is a component! (as a < div > in HTML)
+- A component is a reusable piece of code
+- Webpack is a bundler
+- Hot Reloading comunicates with our pc
+-
