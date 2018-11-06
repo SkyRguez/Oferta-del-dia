@@ -1,10 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 
-class StorePicker extends React.Component {
-  render() {
-    return <p>💥🔫HeadShoot💥🔫</p>;
-  }
-}
+import StorePicker from "./components/StorePicker";
 
 render(<StorePicker />, document.querySelector("#app-container"));

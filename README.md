@@ -56,4 +56,26 @@ v8.12.0
 - A component is a reusable piece of code
 - Webpack is a bundler
 - Hot Reloading comunicates with our pc
+- Write :
+
+```
+class "nameClass" extends Component {
+  render() {
+    return <p>Hi!<p/>;
+  }
+}
+```
+
+Is the same as:
+
+```
+const "nameClass" = () => {
+  return <p>Hi!<p/>
+}
+```
+
+- Always use this words in React:
+  - import
+  - export
+  - export default
 -
