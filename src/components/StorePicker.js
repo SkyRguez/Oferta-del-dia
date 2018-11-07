@@ -3,9 +3,11 @@ import React from "react";
 class StorePicker extends React.Component {
   render() {
     return (
-      <p>
-        <h1>💥🔫HeadShot💥🔫</h1>
-      </p>
+      <form className="store-selector">
+        <h1>Please Enter a Store</h1>
+        <input type="text" required placeholder="Store Name" />
+        <button type="submit">🍱 Visit Store 🍱</button>
+      </form>
     );
   }
 }
