@@ -120,7 +120,7 @@ return <p>Hi!<p/>;
 -JS:
 
 ```js
-return React.createElement ("p. {}, "Hi!");
+return React.createElement("p. {}, "Hi!");
 ```
 
 #### With nested tags
@@ -139,12 +139,24 @@ return React.createElement ("p. {}, "Hi!");
 React.createElement(
   "div",
   {},
-  React.createElement ("p. {}, "Hi!");
+  React.createElement("p. {}, "Hi!");
 )
 ```
 
 ### JSX Gotchas:
 
+#### Use `className` instead of `class`
+
 ```jsx
 <p className="my-class">Hi!</p>
+```
+
+#### Beware ASI (Automatic Semicolon Instertion)
+
+```jsx
+return (
+  <div>
+    <p className="my-class">Hi!</p>
+  </div>
+);
 ```
