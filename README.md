@@ -58,7 +58,7 @@ v8.12.0
 - Hot Reloading comunicates with our pc
 - Write :
 
-```
+```r
 class "nameClass" extends Component {
   render() {
     return <p>Hi!<p/>;
@@ -68,7 +68,7 @@ class "nameClass" extends Component {
 
 Is the same as:
 
-```
+```r
 const "nameClass" = () => {
   return <p>Hi!<p/>
 }
@@ -78,4 +78,73 @@ const "nameClass" = () => {
   - import
   - export
   - export default
--
+- We can write HTML in JS
+
+### Component's structure
+
+- Imports
+
+```r
+import React from "react";
+import "ComponentsName" from "./ComponentsName";
+```
+
+- Component
+
+```r
+class ComponentsName extends React.Component{
+  render() {
+    return ...
+  }
+}
+```
+
+- Export
+
+```r
+export default ComponentsName;
+```
+
+### To JSX or not JSX...
+
+#### With only one tag
+
+Both are equivalent:
+
+- JSX:
+
+```jsx
+return <p>Hi!<p/>;
+```
+
+-JS:
+
+```js
+return React.createElement ("p. {}, "Hi!");
+```
+
+#### With nested tags
+
+-JSX:
+
+```jsx
+<div>
+  <p>Hi!</p>
+</div>
+```
+
+-JS:
+
+```js
+React.createElement(
+  "div",
+  {},
+  React.createElement ("p. {}, "Hi!");
+)
+```
+
+### JSX Gotchas:
+
+```jsx
+<p className="my-class">Hi!</p>
+```
