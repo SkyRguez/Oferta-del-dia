@@ -6,7 +6,15 @@ class StorePicker extends React.Component {
       <form className="store-selector">
         <h1>Please Enter a Store</h1>
         <input type="text" required placeholder="Store Name" />
-        <button type="submit">🍱 Visit Store 🍱</button>
+        <button type="submit">
+          <span role="img" aria-labelledby="sushi-box">
+            🍱
+          </span>{" "}
+          Visit Store{" "}
+          <span role="img" aria-labelledby="sushi-box">
+            🍱
+          </span>{" "}
+        </button>
       </form>
     );
   }
