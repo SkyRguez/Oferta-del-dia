@@ -177,3 +177,57 @@ return (
 - `props`: A way to get data (`state`) into a component.
 - `state`: where the data lives.
 -
+
+### `$r` inside React Dev Tools
+
+## 3. Stateless funcional Components
+
+Five of them are equivalent
+
+```
+class Header extends React.Component {
+  render() {
+    return (
+      <h3 className="tagline">
+        <span>{this.props.tagline}</span>
+      </h3>
+    );
+  }
+}
+```
+
+```
+const Header = props => {
+  return (
+    <h3 className="tagline">
+      <span>{props.tagline}</span>
+    </h3>
+  );
+};
+```
+
+```
+const Header = ({ tagline }) => {
+  return (
+    <h3 className="tagline">
+      <span>{tagline}</span>
+    </h3>
+  );
+};
+```
+
+```
+const Header = props => (
+  <h3 className="tagline">
+    <span>{props.tagline}</span>
+  </h3>
+);
+```
+
+```
+const Header = ({ tagline }) => (
+  <h3 className="tagline">
+    <span>{tagline}</span>
+  </h3>
+);
+```
