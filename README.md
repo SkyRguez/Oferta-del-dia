@@ -182,9 +182,9 @@ return (
 
 ## 3. Stateless funcional Components
 
-Five of them are equivalent
+Five of them are equivalent:
 
-```
+```jsx
 class Header extends React.Component {
   render() {
     return (
@@ -196,7 +196,7 @@ class Header extends React.Component {
 }
 ```
 
-```
+```jsx
 const Header = props => {
   return (
     <h3 className="tagline">
@@ -206,7 +206,7 @@ const Header = props => {
 };
 ```
 
-```
+```jsx
 const Header = ({ tagline }) => {
   return (
     <h3 className="tagline">
@@ -216,7 +216,7 @@ const Header = ({ tagline }) => {
 };
 ```
 
-```
+```jsx
 const Header = props => (
   <h3 className="tagline">
     <span>{props.tagline}</span>
@@ -224,7 +224,7 @@ const Header = props => (
 );
 ```
 
-```
+```jsx
 const Header = ({ tagline }) => (
   <h3 className="tagline">
     <span>{tagline}</span>
