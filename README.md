@@ -231,3 +231,41 @@ const Header = ({ tagline }) => (
   </h3>
 );
 ```
+
+## 5. Events in React
+
+[Synthetic Events in React](https://react.js.org/docs/events.html)
+
+Hey React! When somebody clicks the button, execute this 👇function, please:
+
+```jsx
+<button onClick={this.handleClick}>
+```
+
+## 6. Binding `this` inside a Component
+
+Binding our own methods/functions inside a `component`.
+
+### Method 1: Inside the `constructor`
+
+```jsx
+class StorePicker extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.goToStore = this.goToStore.bind(this);
+  }
+
+  goToStore(event) {}
+}
+```
+
+### Method 2: Declare a `property` instead of `method`/`function` inside the component
+
+```jsx
+class StorePicker extends React.Component {
+  goToStore = event => {};
+}
+```
+
+**Remember**: If you must access `this` inside a custom method/function in a component, you need to bind `this` with Method 1 or even better using Method 2.
