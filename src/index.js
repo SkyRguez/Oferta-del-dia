@@ -6,4 +6,4 @@ import App from "./components/App";
 
 import Routes from "./components/Routes";
 
-render(<Routes />, document.querySelector("#app-container"));
+render(<Routes />, document.querySelector("#main"));
