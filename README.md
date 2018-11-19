@@ -280,3 +280,49 @@ React philosophy: Update the data (state) and let it React take it and update co
 You can never pass data up, you can only pass data down.
 
 Functions that update state and the state itself need to be in the same component.
+
+### X. Production build
+
+Just Run
+
+```sh
+❯ npm run build
+```
+
+### Deploying to `now`
+
+```
+❯ npm install -g now
+❯ now -v
+❯ npm install serve
+```
+
+Change `start` script to `dev` script and make a new `start` script that runs the production build
+
+```json
+"scripts": {
+    "dev": "react-scripts start",
+}
+```
+
+Create a `now.json` file at the root
+
+```json
+{
+  "version": 2,
+  "name": "create-react-app",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+  "routes": [
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
+    { "src": ".*", "dest": "/index.html" }
+  ]
+}
+```
+
+Create a custom alias
+
+```
+❯ now alias https://create-react-app-n2e4bct8i.now.sh pescaditosdeoza
+```
+
+You can access your site https://pescaditosdeoza.now.sh/
