@@ -58,7 +58,7 @@ Try
 rm -rf node_modules/
 rm -rf package-lock.json
 npm install
-npm start
+npm run dev
 ```
 
 ## 1. Intro to React
