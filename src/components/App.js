@@ -4,11 +4,12 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
+import Menu from "./Menu";
 
 class App extends React.Component {
   state = {
     fishes: {},
-    órder: {}
+    order: {}
   };
 
   addFish = newFish => {
@@ -29,22 +30,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="catch-of-the-day">
-        <div className="menu">
-          <Header tagline="fresh seafood market" />
-          <ul className="fishes">
-            {Object.keys(this.state.fishes).map(fish => (
-              <Fish
-                key={fish}
-                fishDetails={this.state.fishes[fish]}
-                name={this.state.fishes[fish].name}
-                price={this.state.fishes[fish].price}
-                desc={this.state.fishes[fish].desc}
-                status={this.state.fishes[fish].status}
-                image={this.state.fishes[fish].image}
-              />
-            ))}
-          </ul>
-        </div>
+        <Menu pescados={this.state.fishes} />
         <Order />
         <Inventory
           addFish={this.addFish}
