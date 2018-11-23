@@ -1,16 +1,27 @@
 import React from "react";
-import Header from "./Header";
 import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
-import Fish from "./Fish";
 import Menu from "./Menu";
+import base from "../base";
 
 class App extends React.Component {
   state = {
     fishes: {},
     order: {}
   };
+
+  componentDidMount() {
+    const config = {
+      context: this,
+      state: "fishes"
+    };
+    this.ref = base.syncState(`${this.props.storeId}/fishes`, config);
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   addFish = newFish => {
     //1. Take a copy of existing `State`
