@@ -11,6 +11,8 @@ class App extends React.Component {
     order: {}
   };
 
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   componentDidMount() {
     //Read from localStorage
     const localStorageRef = localStorage.getItem(this.props.storeId);
@@ -25,14 +27,20 @@ class App extends React.Component {
     this.ref = base.syncState(`${this.props.storeId}/fishes`, config);
   }
 
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   componentDidUpdate() {
     //save to localStorage
     localStorage.setItem(this.props.storeId, JSON.stringify(this.state.order));
   }
 
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
+
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
   addFish = newFish => {
     //1. Take a copy of existing `State`
@@ -45,9 +53,24 @@ class App extends React.Component {
     });
   };
 
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+  updateFish = (fishKey, updatedFish) => {
+    console.log(fishKey, updatedFish);
+    const updatedFishes = { ...this.state.fishes };
+    updatedFishes[fishKey] = updatedFish;
+    this.setState({
+      fishes: updatedFishes
+    });
+  };
+
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
+
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
   addToOrder = orderKey => {
     //1. Take a copy of the existing `State`
@@ -64,14 +87,18 @@ class App extends React.Component {
     });
   };
 
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   render() {
     return (
       <div className="catch-of-the-day">
         <Menu pescados={this.state.fishes} addToOrder={this.addToOrder} />
         <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
+          updateFish={this.updateFish}
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes}
         />
       </div>
     );
