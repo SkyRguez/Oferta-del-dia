@@ -15,7 +15,7 @@ class EditFishForm extends React.Component {
       ...this.props.fish,
       [event.currentTarget.name]: event.currentTarget.value
     };
-    this.props.deleteFish(this.props.fishKey);
+    this.props.deleteFish(this.props.fishKey, deletedFish);
   };
 
   render() {

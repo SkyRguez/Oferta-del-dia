@@ -76,6 +76,16 @@ class App extends React.Component {
 
   /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+  deleteOrder = orderKey => {
+    const deletedOrder = { ...this.state.order };
+    delete deletedOrder[orderKey];
+    this.setState({
+      order: deletedOrder
+    });
+  };
+
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -103,7 +113,11 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <Menu pescados={this.state.fishes} addToOrder={this.addToOrder} />
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          deleteOrder={this.deleteOrder}
+          fishes={this.state.fishes}
+          order={this.state.order}
+        />
         <Inventory
           deleteFish={this.deleteFish}
           updateFish={this.updateFish}
